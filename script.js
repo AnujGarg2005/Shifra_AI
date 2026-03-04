@@ -1,10 +1,8 @@
 const btn = document.querySelector("#btn");
 const content = document.querySelector("#content");
 
-/* ================= SPEAK FUNCTION ================= */
-
 function speak(text) {
-    window.speechSynthesis.cancel(); // stop previous speech
+    window.speechSynthesis.cancel(); 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 1;
     utterance.pitch = 1;
@@ -12,9 +10,6 @@ function speak(text) {
     utterance.lang = "en-GB";
     window.speechSynthesis.speak(utterance);
 }
-
-/* ================= WISH FUNCTION ================= */
-
 function wishMe() {
     const hour = new Date().getHours();
 
@@ -29,7 +24,6 @@ function wishMe() {
 
 window.addEventListener("load", wishMe);
 
-/* ================= SPEECH RECOGNITION ================= */
 
 const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -62,7 +56,6 @@ if (!SpeechRecognition) {
     });
 }
 
-/* ================= COMMAND HANDLER ================= */
 
 function takeCommand(message) {
 
@@ -111,4 +104,5 @@ function takeCommand(message) {
             "_blank"
         );
     }
+
 }
